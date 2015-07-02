@@ -1,0 +1,28 @@
+language: python
+python:
+ - 2.7
+
+sudo: false
+
+env:
+  global:
+    - PATH=$HOME/miniconda/bin:$HOME/miniconda/envs/ci/bin/:$PATH
+     # note: mdtraj and coveralls are provided by omnia binstar repo
+    - common_py_deps="pyemma ipython-notebook"
+
+before_install:
+# before we invoke setup.py, install $common_deps with conda and let the rest
+# (currently only pystallone) be resolved by setuptools.
+- deactivate # travis python venv
+- tools/ci/travis/install_miniconda.sh
+- source activate ci
+- conda list
+# use a headless plotting backend for matplotlib
+- mkdir -p ~/.config/matplotlib/
+- touch ~/.config/matplotlib/matplotlibrc
+- "echo 'backend: Agg' >> ~/.config/matplotlib/matplotlibrc"
+install:
+- conda install -qy $common_py_deps 
+
+script:
+- test/run_ipython_tests.sh  
