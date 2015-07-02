@@ -15,6 +15,9 @@ popd
 pushd TPT
 python $base_dir/ipynbtest.py "TPT_BPTI.ipynb" || testfail=3
 popd
+pushd Analyze_MSM
+python $base_dir/ipynbtest.py "Analyze_MSM_AlanineDiP.ipynb" || testfail=4
+popd
 
 ##############################################################################
 # leave this alone
