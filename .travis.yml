@@ -21,6 +21,7 @@ before_install:
 - mkdir -p ~/.config/matplotlib/
 - touch ~/.config/matplotlib/matplotlibrc
 - "echo 'backend: Agg' >> ~/.config/matplotlib/matplotlibrc"
+- conda config --add channels http://conda.binstar.org/omnia 
 install:
 - conda install -qy $common_py_deps 
 
