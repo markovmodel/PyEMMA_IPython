@@ -14,9 +14,13 @@ python $base_dir/ipynbtest.py "Estimate_BPTI_MSM.ipynb" || testfail=2
 popd
 pushd TPT
 python $base_dir/ipynbtest.py "TPT_BPTI.ipynb" || testfail=3
+python $base_dir/ipynbtest.py "TPT_AlanineDiP.ipynb" || testfail=4
 popd
 pushd Analyze_MSM
-python $base_dir/ipynbtest.py "Analyze_MSM_AlanineDiP.ipynb" || testfail=4
+python $base_dir/ipynbtest.py "Analyze_MSM_AlanineDiP.ipynb" || testfail=5
+popd
+pushd md2msm_penta_peptide
+python $base_dir/ipynbtest.py "md2msm_penta_peptide.ipynb" || testfail=6
 popd
 
 ##############################################################################
