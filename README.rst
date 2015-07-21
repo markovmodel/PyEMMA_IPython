@@ -1,4 +1,4 @@
 PyEMMA IPython Notebooks
 ========================
 
-TODO: update
+PyEMMA Ipython notebooks for version 1.2.2
