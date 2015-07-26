@@ -12,9 +12,9 @@ pushd BPTI
 python $base_dir/ipynbtest.py "Estimate_BPTI_MSM.ipynb" || testfail=1
 python $base_dir/ipynbtest.py "TPT_BPTI.ipynb" || testfail=2
 popd
-pushd md2msm_penta_peptide
-python $base_dir/ipynbtest.py "md2msm_penta_peptide.ipynb" || testfail=2
-popd
+#pushd md2msm_penta_peptide
+#python $base_dir/ipynbtest.py "md2msm_penta_peptide.ipynb" || testfail=2
+#popd
 
 ##############################################################################
 # leave this alone
