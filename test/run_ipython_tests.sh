@@ -15,9 +15,6 @@ popd
 pushd md2msm_penta_peptide
 python $base_dir/ipynbtest.py "md2msm_penta_peptide.ipynb" || testfail=2
 popd
-pushd tryp_ben
-python $base_dir/ipynbtest.py "CA_contacts_tryp_ben.ipynb" || testfail=3
-popd
 
 ##############################################################################
 # leave this alone
