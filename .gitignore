@@ -1,2 +1,5 @@
 .ipynb_checkpoints
 *.pyc
+
+# data that we cannot publish is in here 
+unpublished
