@@ -12,6 +12,10 @@ testfail=0
 ###################
 # TEST APPLICATIONS
 
+pushd applications/pentapeptide_msm
+python $base_dir/ipynbtest.py "md2msm_penta_peptide.ipynb" || testfail=2
+popd
+
 # BPTI
 pushd applications/bpti_msm
 python $base_dir/ipynbtest.py "Estimate_BPTI_MSM.ipynb" || testfail=1
@@ -31,10 +35,6 @@ pushd methods/tpt
 python $base_dir/ipynbtest.py "tpt.ipynb" || testfail=1
 popd
 
-
-#pushd md2msm_penta_peptide
-#python $base_dir/ipynbtest.py "md2msm_penta_peptide.ipynb" || testfail=2
-#popd
 
 ##############################################################################
 # leave this alone
