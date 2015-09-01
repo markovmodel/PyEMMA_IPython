@@ -16,6 +16,7 @@ testfail=0
 # BPTI Application
 pushd applications/bpti_msm
 python $base_dir/ipynbtest.py "MSM_BPTI.ipynb" || testfail=1
+popd
 
 # BPTI Feature selection
 pushd methods/feature_selection
