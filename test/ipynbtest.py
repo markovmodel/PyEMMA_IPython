@@ -390,8 +390,12 @@ class IPyKernel(object):
                 out.ename = content['ename']
                 out.evalue = content['evalue']
                 out.traceback = content['traceback']
+            elif msg_type.startswith('comm_'):
+                # widget updates and communication, 
+                # which we will ignore and hope that it is not more serious
+                pass
             else:
-                print "unhandled iopub msg:", msg_type
+                print "unhandled iopub msg:", msg_type, content
 
             outs.append(out)
 

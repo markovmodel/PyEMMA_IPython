@@ -8,7 +8,7 @@ env:
   global:
     - PATH=$HOME/miniconda/bin:$HOME/miniconda/envs/ci/bin/:$PATH
     - common_py_deps="ipython-notebook"
-    - pyemma_deps="mdtraj matplotlib scipy cython"
+    - pyemma_deps="mdtraj matplotlib scipy cython bhmm msmtools"
 before_install:
 # before we invoke setup.py, install $common_deps with conda and let the rest
 # (currently only pystallone) be resolved by setuptools.
@@ -24,7 +24,6 @@ before_install:
 install:
 - source activate ci
 - conda install -qy $pyemma_deps
-#- pip install git+https://github.com/bhmm/bhmm
 - pip install git+https://github.com/markovmodel/pyemma.git@devel
 
 script:
