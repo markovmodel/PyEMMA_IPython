@@ -13,13 +13,13 @@ testfail=0
 # TEST APPLICATIONS
 
 pushd applications/pentapeptide_msm
-python $base_dir/ipynbtest.py "pentapeptide_msm.ipynb" || testfail=2
+python $base_dir/ipynbtest.py "pentapeptide_msm.ipynb" || let "testfail++"
 popd
 
 # BPTI
 pushd applications/bpti_msm
-python $base_dir/ipynbtest.py "Estimate_BPTI_MSM.ipynb" || testfail=1
-python $base_dir/ipynbtest.py "TPT_BPTI.ipynb" || testfail=2
+python $base_dir/ipynbtest.py "Estimate_BPTI_MSM.ipynb" || let "testfail++"
+python $base_dir/ipynbtest.py "TPT_BPTI.ipynb" || let "testfail++"
 popd
 
 ##############
@@ -27,12 +27,12 @@ popd
 
 # Model selection/validation
 pushd methods/model_selection_validation
-python $base_dir/ipynbtest.py "model_selection_validation.ipynb" || testfail=1
+python $base_dir/ipynbtest.py "model_selection_validation.ipynb" || let "testfail++"
 popd
 
 # TPT
 pushd methods/tpt
-python $base_dir/ipynbtest.py "tpt.ipynb" || testfail=1
+python $base_dir/ipynbtest.py "tpt.ipynb" || let "testfail++"
 popd
 
 
