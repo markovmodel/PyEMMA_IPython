@@ -1,4 +1,4 @@
 PyEMMA IPython Notebooks
 ========================
 
-PyEMMA Ipython notebooks for version 1.2.2
+Here you find the PyEMMA Jupyter (former IPython) notebooks 
