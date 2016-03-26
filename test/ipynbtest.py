@@ -636,7 +636,7 @@ if __name__ == '__main__':
                          'the. Default is 2 (means make upto 3 attempts)')
 
     parser.add_argument('--restart-if-fail', dest='restart',
-                    type=int, default=2, nargs='?',
+                    type=int, default=0, nargs='?',
                     help='if set then a fail in a cell will cause to restart ' +
                          'the full notebook!. Default is 0 (means NO rerun).' +
                          'Use this with care.')
