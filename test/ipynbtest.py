@@ -35,17 +35,17 @@ The original is found in a gist under https://gist.github.com/minrk/2620735
 import os,sys
 import re
 import argparse
- 
+
 from Queue import Empty
 import difflib
 
-# IPython 3.0.0
-from IPython.kernel.manager import KernelManager
+# IPython 4.0.0
+from jupyter_client import KernelManager
 import IPython
 
 # Allows to read from all notebook versions
-from IPython.nbformat.reader import reads
-from IPython.nbformat import NotebookNode
+from nbformat.reader import reads
+from nbformat import NotebookNode
 
 import uuid
 
@@ -391,7 +391,7 @@ class IPyKernel(object):
                 out.evalue = content['evalue']
                 out.traceback = content['traceback']
             elif msg_type.startswith('comm_'):
-                # widget updates and communication, 
+                # widget updates and communication,
                 # which we will ignore and hope that it is not more serious
                 pass
             else:
