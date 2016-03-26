@@ -5,7 +5,7 @@ BASE_ENV=$TARGET/envs/ci
 
 function install_miniconda {
 	echo "installing miniconda"
-	wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O mc.sh -o /dev/null
+	wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O mc.sh -o /dev/null
 	bash mc.sh -b -f -p $TARGET
 }
 
@@ -14,7 +14,7 @@ function create_env {
 	# initially create env
 	if [[ ! -d $BASE_ENV ]]; then
 		echo "base env does not exists, creating it"
-		conda create -q --yes -n ci -c https://conda.binstar.org/omnia \
+		conda create -q --yes -n ci -c omnia \
 			python=$TRAVIS_PYTHON_VERSION $deps $common_py_deps
 	fi
 }
