@@ -46,6 +46,7 @@ import IPython
 # Allows to read from all notebook versions
 from nbformat.reader import reads
 from nbformat import NotebookNode
+from nbformat.converter import convert as nb_convert
 
 import uuid
 
@@ -691,9 +692,9 @@ if __name__ == '__main__':
 
     with open(ipynb) as f:
         nb = reads(f.read())
-        # Convert all notebooks to the format IPython 3.0.0 uses to
+        # Convert all notebooks to the format IPython 4.0.0 uses to
         # simplify comparison
-        nb = IPython.nbformat.convert(nb, 4)
+        nb = nb_convert(nb, 4)
 
     notebook_restart = True
     notebook_run_count = 0
