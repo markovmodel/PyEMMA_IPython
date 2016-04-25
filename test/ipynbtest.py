@@ -36,7 +36,7 @@ import os,sys
 import re
 import argparse
 
-from Queue import Empty
+from queue import Empty
 import difflib
 
 # IPython 4.0.0
@@ -99,7 +99,7 @@ class TravisConsole(object):
 
     def _indent(self, s, num = 4):
         lines = s.splitlines(True)
-        lines = map(lambda s: ' ' * num + s, lines)
+        lines = [' ' * num + s for s in lines]
         return ''.join(lines)
 
     def writeln(self, s, indent = 0):
@@ -251,7 +251,7 @@ class IPyTestConsole(TravisConsole):
         self.last_fail = False
 
     def reset(self):
-        self.result_count = { key : 0 for key in self.default_results.keys() }
+        self.result_count = { key : 0 for key in list(self.default_results.keys()) }
         self.pass_count = 0
         self.fail_count = 0
 
@@ -396,7 +396,7 @@ class IPyKernel(object):
                 # which we will ignore and hope that it is not more serious
                 pass
             else:
-                print "unhandled iopub msg:", msg_type, content
+                print("unhandled iopub msg:", msg_type, content)
 
             outs.append(out)
 
@@ -408,7 +408,7 @@ class IPyKernel(object):
         fix universal newlines, strip trailing newlines, and normalize likely
         random values (memory addresses and UUIDs)
         """
-        if not isinstance(s, basestring):
+        if not isinstance(s, str):
             return s
         # normalize newline:
         s = s.replace('\r\n', '\n')
@@ -458,7 +458,7 @@ class IPyKernel(object):
             for key in ref:
                 if key not in test:
                     return True, [ "missing key: %s != %s" %
-                                        (test.keys(), ref.keys()) ]
+                                        (list(test.keys()), list(ref.keys())) ]
 
                 elif key not in skip_compare:
                     if key == 'data':
@@ -842,7 +842,7 @@ if __name__ == '__main__':
                         this_diff, this_str = ipy.compare_outputs(out, ref)
                         if 'verbose' in commands or verbose:
                             if 'data' in out:
-                                for key,value in out.data.iteritems():
+                                for key,value in out.data.items():
                                     if 'text' in key:
                                         out_str += value + '\n'
 
