@@ -13,6 +13,7 @@ before_install:
 # (currently only pystallone) be resolved by setuptools.
 - deactivate # travis python venv
 - tools/ci/travis/install_miniconda.sh
+- conda install -qy $common_py_deps
 - conda list
 # use a headless plotting backend for matplotlib
 - mkdir -p ~/.config/matplotlib/
