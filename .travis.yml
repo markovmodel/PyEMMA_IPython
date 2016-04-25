@@ -1,6 +1,4 @@
-language: python
-python:
- - 2.7
+language: c 
 
 sudo: false
 
@@ -8,10 +6,8 @@ env:
   global:
     - PATH=$HOME/miniconda/bin:$HOME/miniconda/envs/ci/bin/:$PATH
     - common_py_deps="ipython-notebook"
+
 before_install:
-# before we invoke setup.py, install $common_deps with conda and let the rest
-# (currently only pystallone) be resolved by setuptools.
-- deactivate # travis python venv
 - tools/ci/travis/install_miniconda.sh
 - conda install -qy $common_py_deps
 - conda list
@@ -20,6 +16,7 @@ before_install:
 - touch ~/.config/matplotlib/matplotlibrc
 - "echo 'backend: Agg' >> ~/.config/matplotlib/matplotlibrc"
 - conda config --add channels omnia 
+
 install:
 - conda install -qy pyemma-dev
 
