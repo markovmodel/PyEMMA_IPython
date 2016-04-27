@@ -1,6 +1,4 @@
-language: python
-python:
- - 2.7
+language: c 
 
 sudo: false
 
@@ -8,23 +6,19 @@ env:
   global:
     - PATH=$HOME/miniconda/bin:$HOME/miniconda/envs/ci/bin/:$PATH
     - common_py_deps="ipython-notebook"
-    - pyemma_deps="mdtraj matplotlib scipy cython bhmm msmtools thermotools"
+
 before_install:
-# before we invoke setup.py, install $common_deps with conda and let the rest
-# (currently only pystallone) be resolved by setuptools.
-- deactivate # travis python venv
 - tools/ci/travis/install_miniconda.sh
-- source activate ci
+- conda install -qy $common_py_deps
 - conda list
 # use a headless plotting backend for matplotlib
 - mkdir -p ~/.config/matplotlib/
 - touch ~/.config/matplotlib/matplotlibrc
 - "echo 'backend: Agg' >> ~/.config/matplotlib/matplotlibrc"
 - conda config --add channels omnia 
+
 install:
-- source activate ci
-- conda install -qy $pyemma_deps
-- pip install git+https://github.com/markovmodel/pyemma.git@devel
+- conda install -qy pyemma-dev
 
 script:
 - test/run_ipython_tests.sh  
