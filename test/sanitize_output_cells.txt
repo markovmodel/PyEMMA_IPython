@@ -1,0 +1,3 @@
+[matplotlib]
+regex: \<(matplotlib.*at).*\>
+replace: \1 0x0\>
