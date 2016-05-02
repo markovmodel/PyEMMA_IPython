@@ -22,5 +22,4 @@ install:
 - conda install -qy pyemma-dev
 
 script:
-#- test/run_ipython_tests.sh  
-- py.test --nb
+- test/run_ipython_tests.sh  
