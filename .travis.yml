@@ -17,11 +17,9 @@ before_install:
 - touch ~/.config/matplotlib/matplotlibrc
 - "echo 'backend: Agg' >> ~/.config/matplotlib/matplotlibrc"
 # disable progressbars
+- conda install -qy pyemma-dev nomkl
 - python -c "import pyemma; pyemma.config.show_progress_bars=False; pyemma.config.save()"
 - conda config --add channels omnia 
-
-install:
-- conda install -qy pyemma-dev
 
 script:
 - test/run_ipython_tests.sh  
