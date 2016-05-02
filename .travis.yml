@@ -16,6 +16,8 @@ before_install:
 - mkdir -p ~/.config/matplotlib/
 - touch ~/.config/matplotlib/matplotlibrc
 - "echo 'backend: Agg' >> ~/.config/matplotlib/matplotlibrc"
+# disable progressbars
+- python -c "import pyemma; pyemma.config.show_progress_bars=False; pyemma.config.save()"
 - conda config --add channels omnia 
 
 install:
