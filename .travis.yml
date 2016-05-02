@@ -11,6 +11,7 @@ before_install:
 - tools/ci/travis/install_miniconda.sh
 - conda install -qy $common_py_deps
 - conda list
+- pip install nbval
 # use a headless plotting backend for matplotlib
 - mkdir -p ~/.config/matplotlib/
 - touch ~/.config/matplotlib/matplotlibrc
@@ -21,4 +22,5 @@ install:
 - conda install -qy pyemma-dev
 
 script:
-- test/run_ipython_tests.sh  
+#- test/run_ipython_tests.sh  
+- py.test --nb
