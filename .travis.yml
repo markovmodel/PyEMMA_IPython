@@ -9,6 +9,7 @@ env:
 
 before_install:
 - tools/ci/travis/install_miniconda.sh
+- conda config --add channels omnia 
 - conda install -qy $common_py_deps
 - conda list
 - pip install nbval
@@ -19,7 +20,6 @@ before_install:
 # disable progressbars
 - conda install -qy pyemma-dev nomkl
 - python -c "import pyemma; pyemma.config.show_progress_bars=False; pyemma.config.save()"
-- conda config --add channels omnia 
 
 script:
 - test/run_ipython_tests.sh  
