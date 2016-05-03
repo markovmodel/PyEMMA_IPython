@@ -1,10 +1,12 @@
 #!/bin/bash
 # Run ipython notebook tests
-cmd="py.test --nbval"
-test_ops="-v --sanitize-with $base_dir/sanitize_output_cells.txt"
 
 base_dir=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 ipynb_dir=$base_dir/..
+
+cmd="py.test --nbval"
+test_ops="-v --sanitize-with $base_dir/sanitize_output_cells.txt"
+
 pushd $ipynb_dir
 testfail=0
 ##############################################################################
