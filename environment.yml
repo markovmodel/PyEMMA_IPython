@@ -1,0 +1,5 @@
+name: pyemma
+
+dependencies:
+  - python=2.7
+  - pyemma=2.2.7
