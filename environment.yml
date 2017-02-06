@@ -1,4 +1,7 @@
 name: pyemma
+channels: !!python/tuple
+- omnia
+- defaults
 
 dependencies:
   - python=2.7
