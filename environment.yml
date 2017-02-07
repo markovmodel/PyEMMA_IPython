@@ -6,3 +6,4 @@ channels: !!python/tuple
 dependencies:
   - python=2.7
   - pyemma=2.2.7
+  - nomkl # the image gets to big if we use this.
