@@ -16,6 +16,7 @@ Methods
 * Input feature selection
 * Model selection and validation
 * Transition path theory
+* Augmented Markov models 
 
 
 Estimation with fixed equilibrium distribution
