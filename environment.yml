@@ -1,9 +1,8 @@
 name: pyemma
-channels: !!python/tuple
-- conda-forge
-- defaults
+channels: 
+  - conda-forge
+  - defaults
 
 dependencies:
-  - python=3.6
-  - pyemma=2.4
+  - pyemma=2.5.2
   - nomkl # the image gets to big if we use this.
