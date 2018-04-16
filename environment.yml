@@ -6,6 +6,6 @@ channels:
 dependencies:
   - pyemma=2.5.2
   - numpy
-  pip:
+  - pip:
     - mdshare
 
