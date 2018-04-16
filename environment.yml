@@ -5,4 +5,7 @@ channels:
 
 dependencies:
   - pyemma=2.5.2
-  - nomkl # the image gets to big if we use this.
+  - numpy
+  pip:
+    - mdshare
+
