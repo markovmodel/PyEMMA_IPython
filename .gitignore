@@ -9,3 +9,4 @@ unpublished
 # and then simply exclude folders with this name?
 applications/trypsin_benzamidine_hmm/figs
 
+*.xtc
