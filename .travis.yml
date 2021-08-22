@@ -9,16 +9,17 @@ env:
 
 before_install:
 - tools/ci/travis/install_miniconda.sh
+- conda config --add channels omnia 
 - conda install -qy $common_py_deps
 - conda list
+- pip install nbval
 # use a headless plotting backend for matplotlib
 - mkdir -p ~/.config/matplotlib/
 - touch ~/.config/matplotlib/matplotlibrc
 - "echo 'backend: Agg' >> ~/.config/matplotlib/matplotlibrc"
-- conda config --add channels omnia 
-
-install:
-- conda install -qy pyemma-dev
+# disable progressbars
+- conda install -qy pyemma-dev nomkl
+- python -c "import pyemma; pyemma.config.show_progress_bars=False; pyemma.config.save()"
 
 script:
 - test/run_ipython_tests.sh  
